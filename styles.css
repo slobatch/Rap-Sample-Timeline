@@ -15,6 +15,15 @@ footer {
   border-radius: 0px !important;
 }
 
+.sample{
+  background: #C2E0AB !important;
+}
+
+.sampler{
+  background-color: #E0ABAB !important;
+}
+
+
 
 /*
  * Off Canvas
@@ -27,6 +36,7 @@ footer {
     -moz-transition: all 0.25s ease-out;
     transition: all 0.25s ease-out;
   }
+
 
   .row-offcanvas-right
   .sidebar-offcanvas {
