@@ -25,6 +25,36 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+    <style>
+
+      /* Flex-video Copyright (c) 2011 ZURB, http://www.zurb.com/ */
+      .flex-video {
+        position: relative;
+        padding-top: 25px;
+        padding-bottom: 67.5%;
+        height: 0;
+        margin-bottom: 16px;
+        overflow: hidden;
+      }
+       
+      .flex-video.widescreen { padding-bottom: 57.25%; }
+      .flex-video.vimeo { padding-top: 0; }
+       
+      .flex-video iframe,
+      .flex-video object,
+      .flex-video embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      @media only screen and (max-device-width: 800px), only screen and (device-width: 1024px) and (device-height: 600px), only screen and (width: 1280px) and (orientation: landscape), only screen and (device-width: 800px), only screen and (max-width: 767px) {
+        .flex-video { padding-top: 0; }
+      }       
+        
+        
+    </style>
   </head>
 
   <body>
@@ -69,13 +99,17 @@
                   <h3>Sample</h3>
                   <h4>Herbie Hancock - Cantaloupe Island</h4>
                   <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                  <iframe width="420" height="315" src="//www.youtube.com/embed/8B1oIXGX0Io?rel=0" frameborder="0" allowfullscreen></iframe>
+                  <div class="flex-video widescreen">
+                    <iframe width="420" height="315" src="//www.youtube.com/embed/8B1oIXGX0Io?rel=0" frameborder="0" allowfullscreen></iframe>
+                  </div>
                 </div><!--colmd6 -->
                 <div class="col-md-6">
                   <h3>Sampled By</h3>
                   <h4>US3 – Cantaloop (Flip Fantasia)</h4>
                   <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                  <iframe width="420" height="315" src="//www.youtube.com/embed/JwBjhBL9G6U?rel=0" frameborder="0" allowfullscreen></iframe>
+                  <div class="flex-video widescreen">
+                    <iframe width="420" height="315" src="//www.youtube.com/embed/JwBjhBL9G6U?rel=0" frameborder="0" allowfullscreen></iframe>
+                  </div>
                 </div><!--colmd6-->
               </div><!--/row sample-->
             </div><!--/year col -->
@@ -88,13 +122,17 @@
                   <h3>Track</h3>
                   <h4>US3 – Cantaloop (Flip Fantasia)</h4>
                   <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                  <iframe width="420" height="315" src="//www.youtube.com/embed/JwBjhBL9G6U?rel=0" frameborder="0" allowfullscreen></iframe>
+                  <div class="flex-video widescreen">
+                    <iframe width="420" height="315" src="//www.youtube.com/embed/JwBjhBL9G6U?rel=0" frameborder="0" allowfullscreen></iframe>
+                  </div>
                 </div><!--colmd6-->
                 <div class="col-md-6">
                   <h3>Samples</h3>
                   <h4>Herbie Hancock - Cantaloupe Island</h4>
                   <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                  <iframe width="420" height="315" src="//www.youtube.com/embed/8B1oIXGX0Io?rel=0" frameborder="0" allowfullscreen></iframe>
+                  <div class="flex-video widescreen">
+                    <iframe width="420" height="315" src="//www.youtube.com/embed/8B1oIXGX0Io?rel=0" frameborder="0" allowfullscreen></iframe>
+                  </div>
                 </div><!--colmd6 -->
               </div><!--/row sample-->
             </div><!--/year col -->
@@ -124,7 +162,18 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="../../dist/js/bootstrap.min.js"></script>
-    <script src="offcanvas.js"></script>
+    <script type="text/javascript">
+        var $root = $('html, body');
+        $('.list-group-item a').click(function() {
+            var href = $.attr(this, 'href');
+            $root.animate({
+                scrollTop: $(href).offset().top - 50
+            }, 500, function () {
+                window.location.hash = href;
+            });
+            return false;
+        });
+    </script>
   </body>
 </html>
 
